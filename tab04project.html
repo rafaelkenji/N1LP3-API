@@ -1,0 +1,156 @@
+<!DOCUMENT HTML>
+<HTML>
+
+<HEAD>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- A biblioteca bundle já contem os arquivos JS do Bootstrap, Popper, e jQuery.
+    <script src="js/bootstrap.bundle.js"></script>-->
+    <title>FTT EC LP2 N1!!</title>
+    <LINK REL="stylesheet" HREF="css/bootstrap.css" />   
+    <STYLE>
+       .BotaoAzul{
+           color: #FFFFFF;
+           border: 1px solid #113064;
+           text-decoration:none;
+           text-shadow: 0px 1px 0px #333333;
+           background: linear-gradient(to bottom, #375891 -50%, #113064 100%) repeat scroll 0% 0% transparent;
+        }
+        .BotaoGrande{
+            width: auto;
+            overflow: hidden;
+            padding: 5px 45px 5px 45px;
+        }
+        .center-txt {
+            text-align: center;
+            color: black;
+            width: 90px;
+            padding: 4px;
+            margin:0;
+            border:0;
+        }
+        .button-selected {
+            background-color: #343a40;
+            color: white;
+            border-radius:5%;
+        }       
+        .width-button-bar {
+            height: 100px;
+            padding-top: 10px;
+        }
+        .icon-font {
+            font-size: 40px;   
+        }
+        main {
+            padding-top: 56px;
+            padding-bottom: 50px;
+        }       
+    </STYLE>
+    <SCRIPT>
+       
+        var url;
+
+        function createDogPic(nData) {
+                
+                var a = document.createElement("ARTICLE"); // Create a <ARTICLE> element
+                a.setAttribute("class", "card");
+
+                var nImg = document.createElement("IMG"); // Create a <H2> element
+                
+                nImg.src = nData.message; // Create a text node
+                nImg.style.width = '100%'; //The full width is 400px, 10px of border left and right
+              
+                a.appendChild(nImg);
+              
+
+                document.getElementById("aluno").appendChild(a);
+
+          
+            
+            
+            document.querySelectorAll('img').forEach(function(img){
+  	             img.onerror = function(){ this.style.display='none'; };
+            });
+          
+        } 
+
+        function reloadPage() {
+
+            url = 'https://dog.ceo/api/breeds/image/random';
+            document.getElementById("aluno").innerHTML = "";
+            console.log(url);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.onload = function() {
+
+                if (xhr.status >= 200 && xhr.status < 300) {
+
+                    console.log('success', JSON.parse(xhr.responseText));
+                    var dogpic = JSON.parse(xhr.responseText);
+                    createDogPic(dogpic);                    
+                } else {
+                    
+                    let error_message= "Ops! Erro!!!<br>" + xhr.statusText;
+                    console.log(error_message);
+                    document.getElementById("aluno").innerHTML = error_message;
+                } //if
+
+                console.log('Here we are...');
+            };
+
+            xhr.open('GET', url);
+            xhr.send();
+            
+        } //reloadPage
+
+
+
+    </SCRIPT>
+</HEAD>
+
+<BODY onload="reloadPage();" lang="pt-br">
+   
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="#">&#x1F981; FTT EC LP N1!!!</a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <div class="navbar-nav float-right text-right pr-3">
+                <a class="nav-item nav-link" href="index.html">Splash</a>
+                <a class="nav-item nav-link" href="http://www.fundacaosalvadorarena.org.br/" target="newpage">CEFSA</a>
+                <a class="nav-item nav-link" href="about.html">Sobre</a>
+            </div>
+        </div>
+    </nav>
+<p id= "titulo" style="margin-top: 100px; font-style: 100px; font-size: 70px; text-align: center; text-decoration: underline; color:darkblue ;">DOG</p>    
+    
+    <main class="container" id="aluno">
+        <hr>
+        <h1><span class="badge badge-success">Projeto do aluno!!</span></h1>
+    </main>
+    
+<button id= "botao" class="BotaoAzul BotaoGrande" style="margin-top: 100px; font-size: 30px; margin-top: 100px; margin-left: 25%;" onClick="reloadPage();">MOSTRAR OUTRO DOGUINHO</button> 
+    <h1 style = "text-align: center;"><hr><hr><hr><hr>RAFAEL KENJI<hr><hr>
+    RA: 081160010</h1>
+    
+    <nav class="navbar fixed-bottom navbar-light bg-light width-button-bar">
+        <div class="row w-100">
+            <div class="col-sm center-txt"><b onclick='window.location="tab01news.html"'>News<br><span class="icon-font">&#x1f4f0;</span></b>
+            </div>
+            <div class="col-sm center-txt"><b onclick='window.location="tab02map.html"'>Map<br><span class="icon-font">&#x1f4cc;&#xFE0E;</span></b>
+            </div>
+            <div class="col-sm center-txt"><b onclick='window.location="tab03todo.html"'>Todo<br><span class="icon-font">&#x1F4DD;</span></b>
+            </div>
+            <div class="col-sm center-txt button-selected"><b onclick='window.location="tab04project.html"'>Fotos de cachorro<br><span class="icon-font">&#x1F981;</span></b>
+            </div>
+        </div>
+    </nav>
+</BODY>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</HTML>
